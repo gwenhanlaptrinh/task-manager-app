@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome cho icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Task Manager App</title>
+</head>
+<body>
+    <div id="root">
+        <div class="task-app">
+            <!-- Header & Danh ngôn động lực -->
+            <header class="task-header">
+                <h1 class="app-title">Task Manager App</h1>
+                <div class="quote-box" id="quoteBox">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <span class="quote-text">Có công mài sắt có ngày nên kim</span>
+                </div>
+            </header>
+
+            <!-- Khu vực nhập liệu, tìm kiếm và phân loại danh mục -->
+            <section class="task-section">
+                <!-- Form thêm task mới -->
+                <div class="task-form">
+                    <div class="task-form-inputs">
+                        <input type="text" class="task-input title-input" placeholder="Nhập tên task..." value="">
+                        <input type="text" class="task-input desc-input" placeholder="Nhập mô tả task (tùy chọn)..." value="">
+                        <select class="task-category-select">
+                            <option value="Work">Work</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Study">Study</option>
+                        </select>
+                    </div>
+                    <button class="task-form-button">
+                        <i class="fa-solid fa-plus"></i> Add Task
+                    </button>
+                </div>
+
+                <!-- Thanh tìm kiếm và sắp xếp -->
+                <div class="task-toolbar">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" class="search-input" placeholder="Tìm kiếm task theo tên..." value="">
+                    </div>
+                    <select class="sort-select">
+                        <option value="newest">Newest first</option>
+                        <option value="oldest">Oldest first</option>
+                        <option value="az">A-Z</option>
+                    </select>
+                </div>
+
+                <!-- Lọc theo danh mục (Category filter tabs) -->
+                <div class="task-category-filter">
+                    <button class="filter-category-btn active" data-category="All">All Categories</button>
+                    <button class="filter-category-btn" data-category="Work">Work</button>
+                    <button class="filter-category-btn" data-category="Personal">Personal</button>
+                    <button class="filter-category-btn" data-category="Study">Study</button>
+                </div>
+            </section>
+
+            <!-- Thanh tiến độ hoàn thành (Progress Bar) -->
+            <section class="progress-container">
+                <div class="progress-info">
+                    <span>0 of 0 completed</span>
+                    <span class="progress-percent">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%;"></div>
+                </div>
+            </section>
+
+            <!-- Danh sách các task (Task List) -->
+            <section class="task-main">
+                <ul class="task-list">
+                    <li class="task-item completed">
+                        <div class="task-item-content">
+                            <input class="task-toggle" type="checkbox" checked>
+                            <div class="task-details">
+                                <h4 class="task-title">Học lập trình Javascript</h4>
+                                <p class="task-desc">Ôn tập Closures và Scope nâng cao</p>
+                                <span class="task-badge work">Work</span>
+                            </div>
+                        </div>
+                        <div class="task-actions">
+                            <button class="action-btn edit-btn" title="Chỉnh sửa"><i class="fa-solid fa-pen"></i></button>
+                            <button class="action-btn destroy-btn" title="Xóa"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </li> 
+                 
+
+                    <!--
+                    <div class="empty-state">Không có công việc nào được tìm thấy.</div>
+                    -->
+                </ul>
+            </section>
+
+            <!-- Footer (Bộ lọc trạng thái & thống kê) -->
+            <footer class="task-footer">
+                <span class="todo-count"><strong>0</strong> item left</span>
+                <ul class="status-filters">
+                    <li><a class="status-btn selected" href="#/">All</a></li>
+                    <li><a class="status-btn" href="#/active">Active</a></li>
+                    <li><a class="status-btn" href="#/completed">Completed</a></li>
+                </ul>
+                <button class="clear-completed">Clear completed</button>
+            </footer>
+        </div>
+    </div>
+
+    <script type="module" src="./js/app.js"></script>
+</body>
+</html>
